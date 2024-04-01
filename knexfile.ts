@@ -7,7 +7,7 @@ import type { Knex } from "knex";
 const config: { [key: string]: Knex.Config; } = {
   development: {
     client: "postgres",
-    connection: process.env.POSTGRES_PRISMA_URL,
+    connection: process.env.POSTGRES_URL + (process.env.NODE_ENV === 'development' ? '' : '?sslmode=require'),
     // connection: {
     //   database: process.env.DB_NAME,
     //   user: process.env.DB_USER,
